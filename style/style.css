@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #111;
+  background: #fff;
+  line-height: 1.6;
+}
+
+/* ================= NAVIGATION ================= */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  z-index: 1000;
+}
+
+nav .logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 300;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  opacity: 0.5;
+}
+
+/* Hamburger */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: #111;
+  transition: 0.3s ease;
+}
+
+/* Animate Hamburger to X */
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery {
+  column-count: 3;
+  column-gap: 10px;
+  padding: 100px 10%;
+}
+
+.gallery img {
+  width: 100%;
+  margin-bottom: 10px;
+  filter: grayscale(100%);
+  transition: 0.4s ease;
+}
+
+.gallery img:hover {
+  filter: grayscale(0%);
+}
+
+/* ================= ABOUT ================= */
+
+.about {
+  padding: 120px 20%;
+  text-align: center;
+}
+
+.about h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+}
+
+/* ================= INSTAGRAM ================= */
+
+.instagram-clean {
+  padding: 120px 10%;
+}
+
+.insta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.insta-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+}
+
+.insta-header a {
+  text-decoration: none;
+  color: #111;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.insta-header a:hover {
+  opacity: 0.5;
+}
+
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.insta-grid img {
+  width: 100%;
+  display: block;
+  filter: grayscale(100%);
+  transition: 0.4s ease;
+}
+
+.insta-grid img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+/* ================= CONTACT ================= */
+
+.contact {
+  padding: 120px 20%;
+  text-align: center;
+}
+
+.contact h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 20px;
+}
+
+.contact-text {
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.dm-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid #111;
+  text-decoration: none;
+  color: #111;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.dm-btn:hover {
+  background: #111;
+  color: #fff;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+  text-align: center;
+  padding: 40px;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+  .gallery {
+    column-count: 2;
+  }
+
+  .about,
+  .contact {
+    padding: 80px 10%;
+  }
+
+  .insta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+
+  nav {
+    padding: 20px 6%;
+  }
+
+  nav ul {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 40px 0;
+    display: none;
+    border-bottom: 1px solid #eee;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .gallery {
+    column-count: 1;
+  }
+
+  .insta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Smooth dropdown animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
